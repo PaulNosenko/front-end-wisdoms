@@ -1,0 +1,132 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --blue: #0097e6;
+    --green: #33d9b2;
+    --red: #ff5252;
+    --yellow: #ffd900;
+    --text-white: #ffffff;
+    --text-dark-blue: #2c2c54;
+    --font-family-title: 'Signika', sans-serif;
+    --font-family-text: 'Inconsolata', monospace;
+}
+
+body {
+    font-size: 16px;
+    line-height: 1.7;
+    font-family: var(--font-family-text);
+    color: var(--text-dark-blue);
+}
+
+.container {
+    max-width: 1140px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 96px 0;
+}
+
+.section-title {
+    font-size: 48px;
+    margin-bottom: 72px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* nav */
+.nav {
+    background-color: var(--blue);
+    color: var(--text-white);
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    white-space: nowrap;
+}
+
+/* 1st level menu */
+
+.first-level-menu {
+    display: flex;
+    gap: 30px;
+    padding: 10px 0;
+}
+
+.first-level-menu > li {
+    position: relative;
+}
+
+.first-level-menu > li > a {
+    color: var(--text-white);
+    font-weight: bold;
+}
+
+.first-level-menu > li:last-of-type {
+    margin-left: auto;
+}
+
+/* 1nd level menu */
+
+.openable::after {
+    content: "";
+    display: inline-block;
+    background-image: url('https://i.postimg.cc/TwBKnY3D/white-arrow-removebg-preview.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 12px;
+    width: 12px;
+    margin-left: 5px;
+}
+
+.second-level-menu {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--text-dark-blue);
+}
+
+.second-level-menu > li {
+    padding: 3px 5px;
+    text-align: center;
+    position: relative;
+}
+
+/* 3rd level menu */
+
+.third-level-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: var(--yellow);
+    color: var(--text-dark-blue);
+}
+
+.third-level-menu > li {
+    padding: 3px 5px;
+    text-align: center;
+}
+
+/* display on hover */
+.first-level-menu li:hover .second-level-menu {
+    display: block;
+}
+
+.second-level-menu li:hover .third-level-menu {
+    display: block;
+}
